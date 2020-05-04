@@ -1,5 +1,5 @@
 import React from "react";
-import AudioDisplay from "./layout/AudioPlay/playAudio";
+import AudioDisplay from "./layout/controlAudio/controlAudio";
 import ChangeAudio from "./Components/ChangeAudio/changeAudio";
 import "./App.css";
 // import vid from "../src/Nilu.mp4";
@@ -40,7 +40,14 @@ class App extends React.Component {
 
   player() {
     this.audio.src = this.state.src;
-    this.audio.play();
+    let button = document.querySelector(".Button");
+    if (button.innerHTML === "Play") {
+      this.audio.play();
+      button.innerHTML = "Pause";
+    } else {
+      this.audio.pause();
+      button.innerHTML = "Play";
+    }
   }
 
   render() {
