@@ -46,8 +46,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <AudioDisplay onClick={this.player} />
         <ChangeAudio changeSrc={this.changeSrc} />
+        <AudioDisplay onClick={this.player} />
       </div>
     );
   }

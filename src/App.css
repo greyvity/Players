@@ -6,5 +6,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsl(46, 66%, 50%);
+  background-color: teal;
+  background-image: linear-gradient(
+      to bottom right,
+      hsla(350, 70%, 74%, 0.9),
+      hsla(300, 100%, 25%, 0.9)
+    ),
+    url(https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-size: cover;
+}
+
+.Button {
+  margin: 10px auto;
+  background-color: hsl(36, 100%, 50%);
+  color: black;
+  border: none;
+  width: 90px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 2em;
 }
