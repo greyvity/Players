@@ -1,5 +1,4 @@
 import React from "react";
-
 class AudioDisplay extends React.Component {
   render() {
     return (

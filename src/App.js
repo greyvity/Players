@@ -1,7 +1,9 @@
 import React from "react";
-import AudioDisplay from "./layout/controlAudio/controlAudio";
-import ChangeAudio from "./Components/ChangeAudio/changeAudio";
-import "./App.css";
+import AudioDisplay from "./Components/Audio/controlAudio/controlAudio";
+import ChangeAudio from "./Components/Audio/ChangeAudio/changeAudio";
+import Toggle from "./Components/Toggle/Toggle";
+// import "./App.css";
+
 // import vid from "../src/Nilu.mp4";
 import Begin from "./Assets/Audio/Begin.mp3";
 import cute from "./Assets/Audio/cute.mp3";
@@ -25,6 +27,7 @@ class App extends React.Component {
 
     this.state = {
       src: sources.begin,
+      isPlaying: false,
     };
     this.changeSrc = this.changeSrc.bind(this);
     this.player = this.player.bind(this);
@@ -33,15 +36,16 @@ class App extends React.Component {
   }
 
   changeSrc(newSrc) {
-    this.setState({
-      src: sources[newSrc],
-    });
+    // this.setState({
+    //   src: sources[newSrc],
+    // });
+    this.audio.src = sources[newSrc];
+    this.player();
   }
 
   player() {
-    this.audio.src = this.state.src;
     let button = document.querySelector(".Button");
-    if (button.innerHTML === "Play") {
+    if (this.audio.paused) {
       this.audio.play();
       button.innerHTML = "Pause";
     } else {
@@ -53,8 +57,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ChangeAudio changeSrc={this.changeSrc} />
-        <AudioDisplay onClick={this.player} />
+        <Toggle />
+        {/* <ChangeAudio changeSrc={this.changeSrc} />
+        <AudioDisplay onClick={this.player} /> */}
       </div>
     );
   }

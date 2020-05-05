@@ -20,7 +20,7 @@ body {
 }
 
 .Button {
-  display: block;
+  display: blcok;
   font-family: cursive;
   margin: 10px auto;
   background-color: hsl(54, 96%, 52%);
