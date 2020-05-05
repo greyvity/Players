@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Players/static/css/main.55f744b3.chunk.css",
+    "main.css": "/Players/static/css/main.9d5dc552.chunk.css",
     "main.js": "/Players/static/js/main.c49048b3.chunk.js",
     "main.js.map": "/Players/static/js/main.c49048b3.chunk.js.map",
     "runtime-main.js": "/Players/static/js/runtime-main.2ad6c1bf.js",
@@ -8,9 +8,9 @@
     "static/js/2.cf2333cd.chunk.js": "/Players/static/js/2.cf2333cd.chunk.js",
     "static/js/2.cf2333cd.chunk.js.map": "/Players/static/js/2.cf2333cd.chunk.js.map",
     "index.html": "/Players/index.html",
-    "precache-manifest.c0a2dd727ea17e7720ae8fdbf482d2c7.js": "/Players/precache-manifest.c0a2dd727ea17e7720ae8fdbf482d2c7.js",
+    "precache-manifest.def275df63e1e86097c3fd1cf0a686e6.js": "/Players/precache-manifest.def275df63e1e86097c3fd1cf0a686e6.js",
     "service-worker.js": "/Players/service-worker.js",
-    "static/css/main.55f744b3.chunk.css.map": "/Players/static/css/main.55f744b3.chunk.css.map",
+    "static/css/main.9d5dc552.chunk.css.map": "/Players/static/css/main.9d5dc552.chunk.css.map",
     "static/js/2.cf2333cd.chunk.js.LICENSE.txt": "/Players/static/js/2.cf2333cd.chunk.js.LICENSE.txt",
     "static/media/Begin.mp3": "/Players/static/media/Begin.8d647f68.mp3",
     "static/media/creative.mp3": "/Players/static/media/creative.e175412e.mp3",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.2ad6c1bf.js",
     "static/js/2.cf2333cd.chunk.js",
-    "static/css/main.55f744b3.chunk.css",
+    "static/css/main.9d5dc552.chunk.css",
     "static/js/main.c49048b3.chunk.js"
   ]
 }
