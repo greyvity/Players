@@ -1,10 +1,10 @@
 import React from "react";
-import AudioDisplay from "./Components/Audio/controlAudio/controlAudio";
+import ControlAudio from "./Components/Audio/controlAudio/controlAudio";
 import ChangeAudio from "./Components/Audio/ChangeAudio/changeAudio";
-import Toggle from "./Components/Toggle/Toggle";
-// import "./App.css";
+import ChangeVideo from "./Components/Video/ChangeVideo/ChangeVideo";
+import ControlVideo from "./Components/Video/controlVideo/controlVideo";
+import "./App.css";
 
-// import vid from "../src/Nilu.mp4";
 import Begin from "./Assets/Audio/Begin.mp3";
 import cute from "./Assets/Audio/cute.mp3";
 import summer from "./Assets/Audio/summer.mp3";
@@ -12,7 +12,7 @@ import rock from "./Assets/Audio/rock.mp3";
 import ukelele from "./Assets/Audio/ukelele.mp3";
 import creative from "./Assets/Audio/creative.mp3";
 
-const sources = {
+const audioSources = {
   begin: Begin,
   cute: cute,
   summer: summer,
@@ -21,29 +21,50 @@ const sources = {
   rock: rock,
 };
 
+const videoSources = {
+  funny: "https://youtube.com/embed/JYNyQcblzgI",
+  corona: "https://www.youtube.com/embed/BtN-goy9VOY",
+  dogs: "https://youtube.com/embed/wtH-hdOF1uA",
+  poem: "https://youtube.com/embed/vAOTH6vMJ6Q",
+  gaming: "https://youtube.com/embed/wl0rZjxgP6E",
+  song: "https://youtube.com/embed/EPGNU1IWPko",
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
+    // state values
     this.state = {
-      src: sources.begin,
-      isPlaying: false,
+      status: "none",
+      videoSrc: videoSources["corona"],
     };
-    this.changeSrc = this.changeSrc.bind(this);
-    this.player = this.player.bind(this);
 
+    //audio Element
     this.audio = new Audio(Begin);
+
+    // binding this to all the functions
+    this.changeSrc = this.changeSrc.bind(this);
+    this.audioPlayer = this.audioPlayer.bind(this);
+    this.onclick = this.onclick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  // changes the source of the audio and vidoe(whichever is active)
   changeSrc(newSrc) {
-    // this.setState({
-    //   src: sources[newSrc],
-    // });
-    this.audio.src = sources[newSrc];
-    this.player();
+    if (this.state.status === "audio") {
+      this.audio.src = audioSources[newSrc];
+      this.audioPlayer();
+    } else if (this.state.status === "video") {
+      this.setState({
+        videoSrc: videoSources[newSrc],
+      });
+      console.log("here");
+    }
   }
 
-  player() {
+  // controls the audio
+  audioPlayer() {
     let button = document.querySelector(".Button");
     if (this.audio.paused) {
       this.audio.play();
@@ -54,14 +75,57 @@ class App extends React.Component {
     }
   }
 
+  handleClick(e) {
+    this.onclick(e.target.className);
+  }
+
+  onclick(property) {
+    console.log(property);
+    if (property === "audio-card card") {
+      this.setState({
+        status: "audio",
+      });
+    } else if (property === "video-card card") {
+      this.setState({
+        status: "video",
+      });
+    } else {
+      this.setState({
+        status: "none",
+      });
+    }
+  }
+
   render() {
-    return (
-      <div className="App">
-        <Toggle />
-        {/* <ChangeAudio changeSrc={this.changeSrc} />
-        <AudioDisplay onClick={this.player} /> */}
-      </div>
-    );
+    if (this.state.status === "audio") {
+      return (
+        <div className="app audio-app">
+          <ControlAudio onClick={this.audioPlayer} />
+          <ChangeAudio changeSrc={this.changeSrc} />
+        </div>
+      );
+    } else if (this.state.status === "video") {
+      return (
+        <div className="app video-app">
+          <ControlVideo src={this.state.videoSrc} />
+          <ChangeVideo changeSrc={this.changeSrc} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="home">
+          <div className="container">
+            <div className="audio-card card" onClick={this.handleClick}>
+              <h3 onClick={this.handleClick}>Audio</h3>
+            </div>
+
+            <div className="video-card card" onClick={this.handleClick}>
+              <h3 onClick={this.handleClick}>Video</h3>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

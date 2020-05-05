@@ -1,5 +1,6 @@
 import React from "react";
-class AudioDisplay extends React.Component {
+
+class ControlAudio extends React.Component {
   render() {
     return (
       <div className="display">
@@ -11,4 +12,4 @@ class AudioDisplay extends React.Component {
   }
 }
 
-export default AudioDisplay;
+export default ControlAudio;

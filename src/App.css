@@ -1,8 +1,33 @@
+/* Contents 
+1. general styles and variables
+2. homescreen
+3. audio and video player
+*/
+
+/* 1. general styles and variables */
 body {
   font-family: cursive;
 }
 
-.App {
+:root {
+  --color-pink: hsl(2, 100%, 88%);
+  --color-blue: hsl(170, 39%, 84%);
+  --background-audio: linear-gradient(
+      to bottom right,
+      hsla(170, 39%, 74%, 0.9),
+      hsla(2, 100%, 86%, 0.9)
+    ),
+    url(https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  --background-video: linear-gradient(
+      to bottom right,
+      hsla(170, 39%, 74%, 0.7),
+      hsla(2, 100%, 86%, 0.7)
+    ),
+    url(https://images.pexels.com/photos/390089/film-movie-motion-picture-390089.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+}
+
+/* Homescreen */
+.home {
   width: 100vw;
   height: 100vh;
   flex-direction: column;
@@ -10,13 +35,83 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-blue);
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 25vw;
+  height: 40vh;
+  margin: 200px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px 0 hsla(0, 0%, 0%, 0.2);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.audio-card {
+  background-image: var(--background-audio);
+}
+
+.video-card {
+  background-image: var(--background-video);
+}
+
+h3 {
+  font-size: 2em;
+  transition: all 0.7s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card:hover h3 {
+  transform: scale(1.3);
+}
+
+/* audio and video player */
+.app {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.audio-app {
   background-image: linear-gradient(
       to bottom right,
       hsla(350, 70%, 74%, 0.9),
       hsla(300, 100%, 25%, 0.9)
     ),
     url(https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-  background-size: cover;
+}
+
+.video-app {
+  background-image: linear-gradient(
+      to bottom right,
+      hsla(350, 70%, 74%, 0.9),
+      hsla(300, 100%, 25%, 0.9)
+    ),
+    url(https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
 }
 
 .Button {
@@ -40,4 +135,9 @@ body {
 input {
   position: relative;
   margin-left: 50px;
+}
+
+iframe {
+  padding: 20px;
+  margin: 20px;
 }

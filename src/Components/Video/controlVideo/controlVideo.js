@@ -3,9 +3,14 @@ class AudioDisplay extends React.Component {
   render() {
     return (
       <div className="display">
-        <button className="Button" onClick={this.props.onClick}>
-          Play
-        </button>
+        <iframe
+          width="800"
+          height="500"
+          src={this.props.src}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     );
   }
