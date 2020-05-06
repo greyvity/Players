@@ -7,6 +7,7 @@
 /* 1. general styles and variables */
 body {
   font-family: cursive;
+  box-sizing: border-box;
 }
 
 :root {
