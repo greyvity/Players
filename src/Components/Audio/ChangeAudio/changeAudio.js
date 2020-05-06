@@ -8,7 +8,7 @@ class ChangeAudio extends React.Component {
 
   handleChange(e) {
     console.log(e.target.value);
-    this.props.changeSrc(e.target.value);
+    this.props.onClick(e.target.value);
   }
   render() {
     return (

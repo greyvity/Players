@@ -73,6 +73,8 @@ body {
 
 h3 {
   font-size: 2em;
+  color: black;
+
   transition: all 0.7s ease-in-out;
 }
 
@@ -108,10 +110,10 @@ h3 {
 .video-app {
   background-image: linear-gradient(
       to bottom right,
-      hsla(350, 70%, 74%, 0.9),
-      hsla(300, 100%, 25%, 0.9)
+      hsla(216, 90%, 35%, 0.9),
+      hsla(219, 70%, 74%, 0.9)
     ),
-    url(https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    url(https://images.pexels.com/photos/390089/film-movie-motion-picture-390089.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
 }
 
 .Button {
