@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a118ffc83a4acf6b0944d45d4770a595",
+    "revision": "73e9184f0055771af144ddd7b69313ce",
     "url": "/Players/index.html"
   },
   {
-    "revision": "ec0fc83c4b5bfa0d62c1",
-    "url": "/Players/static/css/main.432e757d.chunk.css"
+    "revision": "8e258b48f984519eff93",
+    "url": "/Players/static/css/main.ad48a2f1.chunk.css"
   },
   {
-    "revision": "c0d83bde0585c28cb2d9",
-    "url": "/Players/static/js/2.25a049b5.chunk.js"
+    "revision": "22d42c6b53bcdfc67059",
+    "url": "/Players/static/js/2.7436e422.chunk.js"
   },
   {
-    "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/Players/static/js/2.25a049b5.chunk.js.LICENSE.txt"
+    "revision": "c64c486544348f10a6d6c716950bc223",
+    "url": "/Players/static/js/2.7436e422.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ec0fc83c4b5bfa0d62c1",
-    "url": "/Players/static/js/main.b84fd0a2.chunk.js"
+    "revision": "8e258b48f984519eff93",
+    "url": "/Players/static/js/main.5d864563.chunk.js"
   },
   {
     "revision": "328e55fccd86f751c391",
