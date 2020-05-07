@@ -13,17 +13,20 @@ const videoSources = {
 class AudioDisplay extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       videoSrc: videoSources["corona"],
+      activeOption: "corona",
     };
     this.changeSrc = this.changeSrc.bind(this);
   }
 
   changeSrc(newSrc) {
-    this.setState({
-      videoSrc: videoSources[newSrc],
-    });
+    if (Object.keys(videoSources).includes(newSrc)) {
+      this.setState({
+        videoSrc: videoSources[newSrc],
+        activeOption: newSrc,
+      });
+    }
   }
 
   render() {
@@ -38,7 +41,11 @@ class AudioDisplay extends React.Component {
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        <ChangeVideo onClick={this.changeSrc} />
+        <ChangeVideo
+          onClick={this.changeSrc}
+          videoSources={videoSources}
+          activeOption={this.state.activeOption}
+        />
       </div>
     );
   }

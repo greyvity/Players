@@ -26,12 +26,14 @@ class ControlAudio extends React.Component {
   }
 
   changeSrc(newSrc) {
-    this.audio.src = audioSources[newSrc];
-    this.audioPlayer();
+    console.log(newSrc);
+    if (Object.keys(audioSources).includes(newSrc)) {
+      this.audio.src = audioSources[newSrc];
+      this.audioPlayer();
+    }
   }
   // controls the audio
   audioPlayer() {
-    console.log("I am here");
     let button = document.querySelector("button");
     if (this.audio.paused) {
       this.audio.play();
@@ -48,7 +50,7 @@ class ControlAudio extends React.Component {
         <button className="Button" onClick={this.audioPlayer}>
           Play
         </button>
-        <ChangeAudio onClick={this.changeSrc} />
+        <ChangeAudio onClick={this.changeSrc} audioSources={audioSources} />
       </div>
     );
   }

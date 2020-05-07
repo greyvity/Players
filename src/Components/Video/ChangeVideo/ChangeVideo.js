@@ -3,24 +3,28 @@ import React from "react";
 class ChangeAudio extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.displayOptions = this.displayOptions.bind(this);
   }
-  handleChange(e) {
-    console.log(e.target.value);
-    this.props.onClick(e.target.value);
+  handleClick(e) {
+    this.props.onClick(e.target.innerHTML);
+  }
+
+  displayOptions() {
+    let options = this.props.videoSources;
+    return Object.keys(options).map((option) => (
+      <li
+        key={option}
+        className={this.props.activeOption === option ? "playing" : ""}
+      >
+        {option}
+      </li>
+    ));
   }
   render() {
     return (
-      <div className="inputs">
-        <form action="#" defaultChecked="begin" onClick={this.handleChange}>
-          <input type="radio" name="selection" value="poem" /> poem
-          <input type="radio" name="selection" value="song" /> song
-          <input type="radio" name="selection" value="corona" defaultChecked />
-          corona
-          <input type="radio" name="selection" value="dogs" /> dogs
-          <input type="radio" name="selection" value="funny" /> funny
-          <input type="radio" name="selection" value="gaming" /> gaming
-        </form>
+      <div className="inputs" onClick={this.handleClick}>
+        {this.displayOptions()}
       </div>
     );
   }

@@ -2,6 +2,7 @@
 1. general styles and variables
 2. homescreen
 3. audio and video player
+4. Media queries
 */
 
 /* 1. general styles and variables */
@@ -25,13 +26,18 @@ body {
       hsla(2, 100%, 86%, 0.7)
     ),
     url(https://images.pexels.com/photos/390089/film-movie-motion-picture-390089.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  --background-mobile: linear-gradient(
+      to top right,
+      hsla(34, 100%, 79%, 0.5),
+      hsla(189, 87%, 70%, 0.5)
+    ),
+    url(https://images.pexels.com/photos/3574678/pexels-photo-3574678.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
 }
 
 /* Homescreen */
 .home {
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -43,15 +49,22 @@ body {
 }
 
 .container {
-  width: 100vw;
+  width: 50vw;
+  height: 50vh;
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
 }
 
 .card {
   width: 25vw;
   height: 40vh;
-  margin: 200px;
   border-radius: 20px;
   box-shadow: 0 10px 20px 0 hsla(0, 0%, 0%, 0.2);
   background-size: cover;
@@ -128,11 +141,12 @@ h3 {
   height: 40px;
   border-radius: 20px;
   font-size: 1.6em;
-  box-shadow: 0 0.2em 0.2em 0 hsl(0, 0%, 0%, 0.5);
+  box-shadow: 0 0.1em 0.2em 0 hsl(0, 0%, 0%, 0.2);
+  transition: all 0.2s ease;
 }
 
 .Button:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 input {
@@ -143,4 +157,81 @@ input {
 iframe {
   padding: 20px;
   margin: 20px;
+}
+
+.inputs {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  height: 30px;
+  line-height: 1.75;
+  list-style: none;
+  border-radius: 20px;
+  background: var(--background-video);
+  color: black;
+  margin: 0 12px;
+  padding: 0 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.inputs li:hover {
+  transform: scale(1.2);
+}
+
+.playing {
+  transform: scale(1.2);
+  font-weight: bold;
+  background: linear-gradient(
+    to bottom right,
+    hsla(64, 100%, 50%, 0.9),
+    hsla(51, 90%, 41%, 0.9)
+  );
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 800px) {
+  body {
+    font-family: "Times New Roman", Times, serif;
+  }
+  .home {
+    flex-direction: column;
+    background: var(--background-mobile);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  a,
+  .card {
+    width: 100%;
+    opacity: 0.95;
+  }
+
+  .container {
+    width: 65vw;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs {
+    height: 50vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .inputs li {
+    width: 50%;
+    height: 10%;
+    line-height: 2;
+  }
 }

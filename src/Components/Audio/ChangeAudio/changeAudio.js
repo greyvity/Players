@@ -4,29 +4,35 @@ class ChangeAudio extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.displayOptions = this.displayOptions.bind(this);
+    this.state = {
+      activeLink: "begin",
+    };
   }
 
   handleChange(e) {
-    console.log(e.target.value);
-    this.props.onClick(e.target.value);
+    this.setState({
+      activeLink: e.target.innerHTML,
+    });
+    this.props.onClick(e.target.innerHTML);
+    e.preventDefault();
+  }
+
+  displayOptions() {
+    let options = this.props.audioSources;
+    return Object.keys(options).map((option) => (
+      <li
+        key={option}
+        className={this.state.activeLink === option ? "playing" : ""}
+      >
+        {option}
+      </li>
+    ));
   }
   render() {
     return (
-      <div className="inputs">
-        <form action="#" onClick={this.handleChange}>
-          <input type="radio" name="selection" value="cute" /> cute
-          <input type="radio" name="selection" value="rock" /> rock
-          <input type="radio" name="selection" value="summer" /> summer
-          <input
-            type="radio"
-            name="selection"
-            value="begin"
-            defaultChecked
-          />{" "}
-          begin
-          <input type="radio" name="selection" value="creative" /> creative
-          <input type="radio" name="selection" value="ukelele" /> ukelele
-        </form>
+      <div className="inputs" onClick={this.handleChange}>
+        {this.displayOptions()}
       </div>
     );
   }
